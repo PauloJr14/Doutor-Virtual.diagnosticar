@@ -28,66 +28,73 @@
         <div id="corpo">
             <br>
             <h2>Como funciona?</h2>
-            <p id="explicacao">Se você não estiver se sentindo bem, informe o que você está sentindo (mesmo se for 2 ou mais, coloque apenas um) e será informado possíveis causas e possíveis soluções.</p>
+            <p id="explicacao">Se você não estiver se sentindo bem, procure dentre as categorias abaixo e se você estiver sentindo algo correspondente você seleciona e clica em Mostrar Informações.</p>
             <br>
             <main>
-                <form id="sintoma-form">
-                    <h2>O que você está sentindo?</h2>
-                    <input type="text" id="sintoma" name="sintoma" required>
-                    <button type="submit">Diagnosticar</button>
-                </form>
+                <div class="opcoes">
+                    <div class="opcoes">
+                        <h2 for="opcao">O que você está seguindo?</h2>
+                        <select id="opcao">
+                            <option value="doençasmentais">Doenças Mentais</option>
+                            <option value="doençasrespiratórias">Doenças Respiratórias</option>
+                            <option value="dordecabeça">Dor de Cabeça</option>
+                            <option value="alertasnosolhos">Incômodo nos Olhos</option>
+                            <option value="autismo">Níveis do Autismo</option>
+                        </select>
+                        <button onclick="mostrarInfo()">Mostrar Informações</button>
+                    </div>
+                    <br>
             
-                <div id="resultado" style="display: none;">
-                    <br>
-                    <h2>Possíveis causas (doenças):</h2>
-                    <p id="doencas"></p>
-                    <br>
-                    <h2>O que fazer para melhorar:</h2>
-                    <p id="tratamento"></p>
+                    <div id="dordecabeça" class="imagem">
+                        <h2>Dor de Cabeça</h2>
+                        <p>Obsrvando a Imagem, você pode identificar o seu tipo de dor de cabeça. Com essas informações você já pode ter uma ideia de como se tratar.</p>
+                        <br>
+                        <img id="foto-dordecabeça" src="https://www.dorflex.com.br/src/img/media/6bd37bd7-7271-4236-bb6f-6db58843f9ed_.webp" alt="Tipos de Dor de Cabeça">
+                    </div>
+            
+                    <div id="alertasnosolhos" class="imagem">
+                        <h2>Incômodo nos Olhos</h2>
+                        <p>Se algum desses incômodos estiver ocorrendo, algum problema pode estar acontecendo dentro do seu corpo, analise a imagem de acordo com o sintoma.</p>
+                        <br>
+                        <img id="foto-alertanosolhos" src="https://s3.glbimg.com/v1/AUTH_35862ca5c6ab48b992baf1f1b4f7062e/m-extra-globo-com/incoming/14342466-952-9ef/w480h720-PROP/sintomas-dado-pelos-olhos.jpg" alt="Tipos de Incômodo nos Olhos e suas causas">
+                    </div>
+            
+                    <div id="doençasmentais" class="imagem">
+                        <h2>Doenças Mentais</h2>
+                        <p>Esses transtornos mentais são comuns de encontrar em ambientes escolares ou de trabalho, mas como identificar cada um deles? Aqui temos a resposta. Analise essas doenças mentais abaixo:</p>
+                        <br>
+                        <img src="https://s.glbimg.com/jo/g1/f/original/2011/04/21/620x1130_doencas_.jpg" alt="Tipos de Doenças Mentais">
+                    </div>
+
+                    <div id="doençasrespiratórias" class="imagem">
+                        <h2>Doenças Respiratórias</h2>
+                        <p>As doenças respiratórias são bem comuns, principalemente em dias de chuva, mas a maioria confunde-as, então como podemos reconhecer cada uma? Você pode analisar a imagem abaixo que vem mostrando os sintomas de cada doença:</p>
+                        <br>
+                        <img src="https://file.camarasjriopardo.sp.gov.br/70952/artigo/arquivo/6129/14623.webp" alt="Tipos de Doenças Respiratórias e seus sintomas">
+                    </div>
+
+                    <div id="autismo" class="imagem">
+                        <h2>Níveis de Autismo</h2>
+                        <p>O Autismo é uma doença que está bem presente nos dias atuais comparados com uns 20 anos atrás. Mas como identificar o seu nível e possíveis consequências? Analise a imagem abaixo:</p>
+                        <br>
+                        <img src="https://static.wixstatic.com/media/5fa721_f511194c29ff40debfcefc86ca0285cc~mv2.jpg/v1/fill/w_560,h_628,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/5fa721_f511194c29ff40debfcefc86ca0285cc~mv2.jpg" alt="Níveis de Autismo">
+                    </div>
                 </div>
             </main>
         </div>
     
         <script>
-            document.getElementById("sintoma-form").addEventListener("submit", function (event) {
-                event.preventDefault();
-            
-                const sintoma = document.getElementById("sintoma").value;
-                let doencas = [];
-                let tratamento = "";
-            
-                switch (sintoma.toLowerCase()) {
-                    case "dor de cabeça":
-                        doencas = ["Enxaqueca", "Tensão", "Sinusite"];
-                        tratamento = "Descanse em um lugar escuro e silencioso, beba água e tome um analgésico se necessário.";
-                        break;
-                    case "febre":
-                        doencas = ["Gripe", "Infecção Urinária", "Dengue"];
-                        tratamento = "Descanse, beba líquidos, tome medicamentos para reduzir a febre e consulte um médico se os sintomas persistirem.";
-                        break;
-                    case "dor de garganta":
-                        doencas = ["Amigdalite", "Laringite", "Gripe"];
-                        tratamento = "Gargareje com água morna e sal, descanse, beba líquidos quentes e consulte um médico se a dor persistir.";
-                        break;
-                    case "tosse":
-                        doencas = ["Resfriado", "Bronquite", "Asma"];
-                        tratamento = "Beba líquidos, descanse e evite irritantes. Consulte um médico se a tosse persistir.";
-                        break;
-                    case "náuseas":
-                        doencas = ["Enjoo de viagem", "Intoxicação alimentar", "Gravidez"];
-                        tratamento = "Descanse, evite alimentos pesados e consulte um médico se as náuseas persistirem.";
-                        break;
-                    default:
-                        doencas = ["Não foi possível determinar a doença com base no sintoma inserido."];
-                        tratamento = "Consulte um médico para um diagnóstico adequado.";
-                        break;
+            function mostrarInfo() {
+                var opcaoSelecionada = document.getElementById("opcao").value;
+                var imagens = document.querySelectorAll(".imagem");
+    
+                for (var i = 0; i < imagens.length; i++) {
+                    imagens[i].style.display = "none";
                 }
-            
-                const doencasTexto = doencas.join(", ");
-                document.getElementById("doencas").textContent = doencasTexto;
-                document.getElementById("tratamento").textContent = tratamento;
-                document.getElementById("resultado").style.display = "block";
-            });
+    
+                var elementoSelecionado = document.getElementById(opcaoSelecionada);
+                elementoSelecionado.style.display = "block";
+            }
         </script>
     </body>
 </html>

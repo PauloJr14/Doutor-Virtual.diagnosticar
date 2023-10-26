@@ -85,3 +85,53 @@ button {
         padding: 0px;
     }    
 }
+
+.opcoes {
+    margin-bottom: 20px;
+}
+
+.imagem {
+    display: none;
+}
+
+select {
+    font-size: 15px;
+}
+
+img {
+    margin-left: 20px;
+}
+
+select {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+@media screen and (max-width:400px){
+    img {
+        width: 200px;
+    }
+}
+
+@media screen and (min-width:400px) and (max-width:500px){
+    img {
+        width: 300px;
+    }
+}
+
+@media screen and (min-width:500px) and (max-width:600px){
+    img {
+        width: 400px;
+    }
+}
+
+@media screen and (min-width:600px){
+    img {
+        width: 500px;
+    }
+}   
