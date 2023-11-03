@@ -10,6 +10,10 @@ body {
     padding: 20px;
 }
 
+li {
+    font-size: 18px;
+}
+
 header {
     display: flexbox;
     background-color: #FF6961;
@@ -56,10 +60,6 @@ h3 {
 
 p {
     font-size: 20px;
-}
-
-li {
-    font-size: 18px;
 }
 
 input {
